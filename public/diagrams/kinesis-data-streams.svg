@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 420" role="img" aria-label="Kinesis Data Streams architecture">
+  <style>
+    .box { fill: #0f1419; stroke: #2a3544; stroke-width: 1.5; }
+    .box-hi { fill: #132033; stroke: #5b8cff; stroke-width: 1.5; }
+    .t { font-family: ui-sans-serif, system-ui, sans-serif; fill: #e8eef7; font-size: 13px; }
+    .s { font-family: ui-sans-serif, system-ui, sans-serif; fill: #93a0b7; font-size: 11px; }
+    .arr { stroke: #5b8cff; stroke-width: 1.5; fill: none; marker-end: url(#arrow); }
+  </style>
+  <defs>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L6,3 L0,6 Z" fill="#5b8cff"/>
+    </marker>
+  </defs>
+  <rect width="920" height="420" fill="#0b0e12"/>
+  <text class="t" x="24" y="28">Kinesis Data Streams — producers, shards, classic vs Enhanced Fan-Out</text>
+
+  <rect class="box" x="24" y="52" width="200" height="64" rx="10"/>
+  <text class="t" x="40" y="78">Producers</text>
+  <text class="s" x="40" y="96">KPL / SDK / Agent</text>
+
+  <path class="arr" d="M224 84 H 268"/>
+
+  <rect class="box-hi" x="268" y="44" width="384" height="80" rx="10"/>
+  <text class="t" x="284" y="70">Kinesis Data Stream (N shards)</text>
+  <text class="s" x="284" y="90">Partition key → MD5 → shard · 3-AZ sync replication</text>
+  <text class="s" x="284" y="108">1 MB/s in · 2 MB/s out per shard · ordered per key</text>
+
+  <path class="arr" d="M460 124 V 168"/>
+  <path class="arr" d="M360 168 H 280"/>
+  <path class="arr" d="M560 168 H 640"/>
+
+  <rect class="box" x="24" y="176" width="256" height="72" rx="10"/>
+  <text class="t" x="40" y="202">Classic GetRecords</text>
+  <text class="s" x="40" y="220">HTTP poll · ~200 ms</text>
+  <text class="s" x="40" y="236">2 MB/s shared across consumers</text>
+
+  <rect class="box-hi" x="640" y="176" width="256" height="72" rx="10"/>
+  <text class="t" x="656" y="202">Enhanced Fan-Out</text>
+  <text class="s" x="656" y="220">HTTP/2 push · ~70 ms</text>
+  <text class="s" x="656" y="236">2 MB/s dedicated per consumer</text>
+
+  <path class="arr" d="M152 248 V 292"/>
+  <path class="arr" d="M768 248 V 292"/>
+
+  <rect class="box" x="24" y="292" width="872" height="96" rx="10"/>
+  <text class="t" x="40" y="318">Consumers</text>
+  <text class="s" x="40" y="338">KCL (leases + checkpoints in DynamoDB) · Lambda · Firehose · Managed Flink</text>
+  <text class="s" x="40" y="358">Destinations: S3 · Redshift · OpenSearch · DynamoDB · CloudWatch IteratorAge</text>
+  <text class="s" x="40" y="374">At-least-once by default. Exactly-once is the sink's job.</text>
+</svg>

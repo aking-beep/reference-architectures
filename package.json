@@ -1,0 +1,37 @@
+{
+  "name": "reference-architectures",
+  "version": "0.2.0",
+  "private": true,
+  "description": "Reference Architectures — a free, open library of battle-tested system blueprints harvested from ARC's Google Drive work, with diagrams, trade-offs, and scaling paths.",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/aking-beep/reference-architectures.git"
+  },
+  "homepage": "https://arc-website-pi-five.vercel.app/labs/reference-architectures",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "typecheck": "tsc --noEmit",
+    "catalog": "tsx cli/catalog.ts",
+    "sync-content": "tsx scripts/sync-content.ts"
+  },
+  "dependencies": {
+    "next": "^15.5.21",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0",
+    "zod": "3.23.8"
+  },
+  "devDependencies": {
+    "@types/node": "20.14.10",
+    "@types/react": "^19.2.18",
+    "@types/react-dom": "^19.2.4",
+    "autoprefixer": "10.4.19",
+    "postcss": "8.4.39",
+    "tailwindcss": "3.4.6",
+    "tsx": "4.16.2",
+    "typescript": "5.5.3"
+  }
+}
