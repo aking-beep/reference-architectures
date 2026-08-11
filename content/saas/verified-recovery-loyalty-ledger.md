@@ -5,6 +5,8 @@ difficulty: starter
 tags: [ledger, loyalty, supabase, foodmesh]
 updated: 2026-08-11
 origin: "foodmesh-mvp-kit / foodmesh-rewards — verified recovery → farmer loyalty tokens"
+scenario: "Charity pickup of 42.5 kg mints Gold-tier points on Postgres — not a chain."
+image: /scenarios/verified-recovery-loyalty-ledger.jpg
 ---
 
 # Verified Recovery Loyalty Ledger
@@ -12,6 +14,11 @@ origin: "foodmesh-mvp-kit / foodmesh-rewards — verified recovery → farmer lo
 Verified food recovery mints loyalty points on a Postgres ledger — not a blockchain — with role-specific views for charity, farmer, and impact.
 
 _Harvested from:_ foodmesh-mvp-kit / foodmesh-rewards — verified recovery → farmer loyalty tokens
+
+## Scenario
+Charity pickup of 42.5 kg mints Gold-tier points on Postgres — not a chain.
+
+![Charity pickup of 42.5 kg mints Gold-tier points on Postgres — not a chain.](/scenarios/verified-recovery-loyalty-ledger.jpg)
 
 ## When not to use
 When you actually need a public chain, or when "tokens" are a pitch and there is no verified event to mint from.

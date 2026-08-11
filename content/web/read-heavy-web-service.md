@@ -5,6 +5,8 @@ difficulty: starter
 tags: [caching, scaling, web, cdn]
 updated: 2026-08-11
 origin: "ARC Labs catalog seed"
+scenario: "Sale-day ticketing homepage. CDN and Redis take the reads; replicas lag."
+image: /scenarios/read-heavy-web-service.jpg
 ---
 
 # Read-Heavy Web Service
@@ -12,6 +14,11 @@ origin: "ARC Labs catalog seed"
 A cache-fronted, horizontally scaled service pattern for read-dominant workloads with graceful cache invalidation.
 
 _Harvested from:_ ARC Labs catalog seed
+
+## Scenario
+Sale-day ticketing homepage. CDN and Redis take the reads; replicas lag.
+
+![Sale-day ticketing homepage. CDN and Redis take the reads; replicas lag.](/scenarios/read-heavy-web-service.jpg)
 
 ## When not to use
 Write-heavy or strongly consistent workflows (checkout, ledgers, approvals) where a stale read is a bug.

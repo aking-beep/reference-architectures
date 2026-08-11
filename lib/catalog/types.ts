@@ -25,6 +25,10 @@ export interface CatalogItem {
   whenNotToUse?: string;
   /** Optional public path to a diagram asset (SVG/PNG). */
   diagram?: string;
+  /** Scenario illustration shown on the catalog card and detail page. */
+  image?: string;
+  /** One-line caption for the realistic scenario in the image. */
+  scenario?: string;
 }
 
 export interface CatalogConfig {

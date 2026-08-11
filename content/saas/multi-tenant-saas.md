@@ -5,6 +5,8 @@ difficulty: advanced
 tags: [multi-tenancy, saas, isolation, security]
 updated: 2026-08-11
 origin: "ARC Labs catalog seed + TokenLoop org isolation + EIP agency workspace"
+scenario: "Two agency clients, one database. RLS makes tenant_id mandatory, including on jobs."
+image: /scenarios/multi-tenant-saas.jpg
 ---
 
 # Multi-Tenant SaaS Data Isolation
@@ -12,6 +14,11 @@ origin: "ARC Labs catalog seed + TokenLoop org isolation + EIP agency workspace"
 Patterns for isolating tenant data — shared schema with row-level security, up to database-per-tenant.
 
 _Harvested from:_ ARC Labs catalog seed + TokenLoop org isolation + EIP agency workspace
+
+## Scenario
+Two agency clients, one database. RLS makes tenant_id mandatory, including on jobs.
+
+![Two agency clients, one database. RLS makes tenant_id mandatory, including on jobs.](/scenarios/multi-tenant-saas.jpg)
 
 ## When not to use
 A single-tenant internal tool. Isolation machinery without a second customer is ceremony.

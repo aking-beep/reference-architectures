@@ -5,6 +5,8 @@ difficulty: starter
 tags: [aws, well-architected, governance, review]
 updated: 2026-08-11
 origin: "AWS Professor / Lesson_002 Well-Architected Framework Six Pillars + Operator-AI AWS Assessment module"
+scenario: "Prod checkout workload. Six pillars, named owners, a date on the calendar."
+image: /scenarios/well-architected-review-loop.jpg
 ---
 
 # Well-Architected Review Loop
@@ -12,6 +14,11 @@ origin: "AWS Professor / Lesson_002 Well-Architected Framework Six Pillars + Ope
 Run AWS Well-Architected as a repeating operating loop across six pillars — not a one-time slide — with named risks, owners, and a next-workload date.
 
 _Harvested from:_ AWS Professor / Lesson_002 Well-Architected Framework Six Pillars + Operator-AI AWS Assessment module
+
+## Scenario
+Prod checkout workload. Six pillars, named owners, a date on the calendar.
+
+![Prod checkout workload. Six pillars, named owners, a date on the calendar.](/scenarios/well-architected-review-loop.jpg)
 
 ## When not to use
 A greenfield sketch with no workload yet. Review real systems; don't score a deck.

@@ -5,6 +5,8 @@ difficulty: advanced
 tags: [operator-ai, intelligence, schema, evidence]
 updated: 2026-08-11
 origin: "Operator-AI / 00_Product_Spec / operator_ai_master_spec.md (§2 Core Product Loop, §4–8 schemas)"
+scenario: "Meridian Health: reported green, evidence red. The gap is the product."
+image: /scenarios/operator-intelligence-loop.jpg
 ---
 
 # Executive Operating Intelligence Loop
@@ -12,6 +14,11 @@ origin: "Operator-AI / 00_Product_Spec / operator_ai_master_spec.md (§2 Core Pr
 Turn fragmented operational evidence into a structured operating model, then render dashboards, briefs, SOWs, and assessments from that model — not from a chatbot.
 
 _Harvested from:_ Operator-AI / 00_Product_Spec / operator_ai_master_spec.md (§2 Core Product Loop, §4–8 schemas)
+
+## Scenario
+Meridian Health: reported green, evidence red. The gap is the product.
+
+![Meridian Health: reported green, evidence red. The gap is the product.](/scenarios/operator-intelligence-loop.jpg)
 
 ## When not to use
 A Q&A copilot over a document dump. If you do not persist a structured operating model, this is RAG with extra steps.

@@ -5,6 +5,8 @@ difficulty: intermediate
 tags: [kinesis, streaming, shards, efo, aws]
 updated: 2026-08-11
 origin: "AWS Professor / DEA-C01 / 2026-04-24 Kinesis Data Streams lesson + dea-lab-kds lab stream"
+scenario: "Northline Rides — Black Friday surge. Partition by driver_id, Enhanced Fan-Out for fraud, Firehose for the lake."
+image: /scenarios/kinesis-data-streams.jpg
 ---
 
 # Kinesis Data Streams — Distributed Log
@@ -12,6 +14,11 @@ origin: "AWS Professor / DEA-C01 / 2026-04-24 Kinesis Data Streams lesson + dea-
 AWS's managed distributed log: shards, partition keys, classic vs Enhanced Fan-Out consumers, and checkpointing. The foundation pattern for real-time pipelines.
 
 _Harvested from:_ AWS Professor / DEA-C01 / 2026-04-24 Kinesis Data Streams lesson + dea-lab-kds lab stream
+
+## Scenario
+Northline Rides — Black Friday surge. Partition by driver_id, Enhanced Fan-Out for fraud, Firehose for the lake.
+
+![Northline Rides — Black Friday surge. Partition by driver_id, Enhanced Fan-Out for fraud, Firehose for the lake.](/scenarios/kinesis-data-streams.jpg)
 
 ## When not to use
 A single consumer that just needs load-leveling — use SQS. A no-code land-in-S3 path — use Firehose. An existing Kafka toolchain — use MSK.

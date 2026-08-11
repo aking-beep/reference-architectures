@@ -11,6 +11,8 @@ export default function Home() {
     summary: i.summary,
     tags: i.tags,
     difficulty: i.difficulty,
+    image: i.image,
+    scenario: i.scenario,
   }));
 
   return (

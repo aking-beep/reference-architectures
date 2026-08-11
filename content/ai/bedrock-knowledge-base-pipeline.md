@@ -5,6 +5,8 @@ difficulty: intermediate
 tags: [bedrock, rag, s3, dynamodb, aws]
 updated: 2026-08-11
 origin: "Operator-AI master spec §18 AWS Architecture + ADR-001 initial resources"
+scenario: "S3 is the artifact system of record. The Knowledge Base is a derived index."
+image: /scenarios/bedrock-knowledge-base-pipeline.jpg
 ---
 
 # Bedrock Knowledge Base Extraction Pipeline
@@ -12,6 +14,11 @@ origin: "Operator-AI master spec §18 AWS Architecture + ADR-001 initial resourc
 S3 artifacts into a Bedrock Knowledge Base, schema-validated extraction into DynamoDB, briefs generated on a schedule — the AWS shape behind Operator AI.
 
 _Harvested from:_ Operator-AI master spec §18 AWS Architecture + ADR-001 initial resources
+
+## Scenario
+S3 is the artifact system of record. The Knowledge Base is a derived index.
+
+![S3 is the artifact system of record. The Knowledge Base is a derived index.](/scenarios/bedrock-knowledge-base-pipeline.jpg)
 
 ## When not to use
 A single-document Q&A toy, or a workload that must not leave your VPC without a private Bedrock setup you are ready to operate.

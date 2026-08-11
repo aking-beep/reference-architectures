@@ -5,7 +5,7 @@
  */
 import { mkdirSync, writeFileSync, rmSync, existsSync } from "node:fs";
 import { dirname, join } from "node:path";
-import { ITEMS } from "../lib/catalog/data";
+import { ITEMS } from "../lib/catalog";
 
 const ROOT = join(process.cwd(), "content");
 
@@ -33,9 +33,15 @@ function toMarkdown(item: (typeof ITEMS)[number]): string {
     `updated: ${item.updated}`,
   ];
   if (item.origin) lines.push(`origin: ${JSON.stringify(item.origin)}`);
+  if (item.scenario) lines.push(`scenario: ${JSON.stringify(item.scenario)}`);
+  if (item.image) lines.push(`image: ${item.image}`);
   lines.push("---", "", `# ${item.title}`, "", item.summary, "");
   if (item.origin) {
     lines.push(`_Harvested from:_ ${item.origin}`, "");
+  }
+  if (item.scenario) {
+    lines.push(`## Scenario`, item.scenario, "");
+    if (item.image) lines.push(`![${item.scenario}](${item.image})`, "");
   }
   if (item.whenNotToUse) {
     lines.push("## When not to use", item.whenNotToUse, "");

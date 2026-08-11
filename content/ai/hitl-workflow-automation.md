@@ -5,6 +5,8 @@ difficulty: intermediate
 tags: [hitl, workflows, approvals, operator-ai]
 updated: 2026-08-11
 origin: "Operator-AI / 00_Product_Spec / operator_ai_phase6_package + master spec §3.D Action Layer"
+scenario: "Draft the Jira ticket. A human still has to send it."
+image: /scenarios/hitl-workflow-automation.jpg
 ---
 
 # Human-in-the-Loop Action Layer
@@ -12,6 +14,11 @@ origin: "Operator-AI / 00_Product_Spec / operator_ai_phase6_package + master spe
 Draft tickets, emails, and escalations from operating intelligence — but never mutate an external system without a human approval.
 
 _Harvested from:_ Operator-AI / 00_Product_Spec / operator_ai_phase6_package + master spec §3.D Action Layer
+
+## Scenario
+Draft the Jira ticket. A human still has to send it.
+
+![Draft the Jira ticket. A human still has to send it.](/scenarios/hitl-workflow-automation.jpg)
 
 ## When not to use
 Fully autonomous ops on throwaway environments. If a wrong write can page a client or move money, this is the pattern.

@@ -55,6 +55,18 @@ export default async function ItemPage({ params }: PageProps) {
           )}
         </div>
 
+        {item.image && (
+          <figure className="card overflow-hidden">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src={item.image} alt={item.scenario ?? item.title} className="w-full h-auto" />
+            {item.scenario && (
+              <figcaption className="text-sm text-sub leading-relaxed px-4 py-3 border-t border-line">
+                {item.scenario}
+              </figcaption>
+            )}
+          </figure>
+        )}
+
         {item.diagram && (
           <figure className="card p-3 overflow-x-auto">
             {/* eslint-disable-next-line @next/next/no-img-element */}

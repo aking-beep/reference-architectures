@@ -5,6 +5,8 @@ difficulty: advanced
 tags: [cro, ux, playwright, lighthouse, assessment]
 updated: 2026-08-11
 origin: "experience-intelligence-platform — Drive/GitHub RFP-grade CRO assessment"
+scenario: "RFP-grade checkout assessment. AI only ranks findings the crawlers produced."
+image: /scenarios/experience-intelligence-pipeline.jpg
 ---
 
 # Experience Intelligence Assessment Pipeline
@@ -12,6 +14,11 @@ origin: "experience-intelligence-platform — Drive/GitHub RFP-grade CRO assessm
 RFP-grade CRO/UX assessment: crawl, Playwright journeys, Lighthouse, axe-core, and AI interpretation into an evidence-backed, prioritized backlog.
 
 _Harvested from:_ experience-intelligence-platform — Drive/GitHub RFP-grade CRO assessment
+
+## Scenario
+RFP-grade checkout assessment. AI only ranks findings the crawlers produced.
+
+![RFP-grade checkout assessment. AI only ranks findings the crawlers produced.](/scenarios/experience-intelligence-pipeline.jpg)
 
 ## When not to use
 A one-page Lighthouse paste. If you are not collecting journey evidence, you do not need this pipeline.

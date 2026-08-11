@@ -5,6 +5,8 @@ difficulty: starter
 tags: [nextjs, vercel, labs, platform]
 updated: 2026-08-11
 origin: "ARC Transformation / ARC Labs (Free) + ARC Master Blueprint §5–6 (shared platform components)"
+scenario: "Fourth free tool, same Next.js + Vercel stack. Three homes: Drive, GitHub, website."
+image: /scenarios/arc-labs-nextjs-stack.jpg
 ---
 
 # ARC Labs Product Stack
@@ -12,6 +14,11 @@ origin: "ARC Transformation / ARC Labs (Free) + ARC Master Blueprint §5–6 (sh
 The shared Next.js + Vercel + TypeScript shape every ARC Labs tool ships on, so a new scanner or catalog lands fast and behaves the same.
 
 _Harvested from:_ ARC Transformation / ARC Labs (Free) + ARC Master Blueprint §5–6 (shared platform components)
+
+## Scenario
+Fourth free tool, same Next.js + Vercel stack. Three homes: Drive, GitHub, website.
+
+![Fourth free tool, same Next.js + Vercel stack. Three homes: Drive, GitHub, website.](/scenarios/arc-labs-nextjs-stack.jpg)
 
 ## When not to use
 A Python data job with no UI, or an AWS-only pipeline. Don't drag Next.js into a Lambda that only transforms Parquet.

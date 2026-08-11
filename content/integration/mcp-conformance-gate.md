@@ -5,6 +5,8 @@ difficulty: starter
 tags: [mcp, conformance, agents, ci]
 updated: 2026-08-11
 origin: "ARC Labs / mcp-conformance-scanner — flagship free tool"
+scenario: "Server looked fine in one client. Handshake and schemas say otherwise."
+image: /scenarios/mcp-conformance-gate.jpg
 ---
 
 # MCP Conformance Gate
@@ -12,6 +14,11 @@ origin: "ARC Labs / mcp-conformance-scanner — flagship free tool"
 Treat Model Context Protocol servers as production dependencies: handshake, capability negotiation, and schema checks as a gate — not a vibe check in one client.
 
 _Harvested from:_ ARC Labs / mcp-conformance-scanner — flagship free tool
+
+## Scenario
+Server looked fine in one client. Handshake and schemas say otherwise.
+
+![Server looked fine in one client. Handshake and schemas say otherwise.](/scenarios/mcp-conformance-gate.jpg)
 
 ## When not to use
 A local toy server you will never share. The gate is for anything another agent or team will call.

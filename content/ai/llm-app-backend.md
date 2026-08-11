@@ -5,6 +5,8 @@ difficulty: intermediate
 tags: [llm, ai, gateway, observability]
 updated: 2026-08-11
 origin: "ARC Labs catalog seed + Operator-AI Bedrock gateway practice"
+scenario: "Prompt v14 at 2am. Gateway, versioned prompts, traces, and a cost cap."
+image: /scenarios/llm-app-backend.jpg
 ---
 
 # LLM Application Backend
@@ -12,6 +14,11 @@ origin: "ARC Labs catalog seed + Operator-AI Bedrock gateway practice"
 A production LLM backend: gateway, prompt/version control, caching, guardrails, and observability.
 
 _Harvested from:_ ARC Labs catalog seed + Operator-AI Bedrock gateway practice
+
+## Scenario
+Prompt v14 at 2am. Gateway, versioned prompts, traces, and a cost cap.
+
+![Prompt v14 at 2am. Gateway, versioned prompts, traces, and a cost cap.](/scenarios/llm-app-backend.jpg)
 
 ## When not to use
 A one-off notebook or an internal spike with no cost, safety, or replay requirements.

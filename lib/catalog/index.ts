@@ -1,8 +1,15 @@
 import { CONFIG } from "./config";
-import { ITEMS } from "./data";
+import { ITEMS as RAW } from "./data";
+import { SCENARIOS, scenarioImage } from "./scenarios";
 import type { CatalogItem } from "./types";
 
-export { CONFIG, ITEMS };
+export { CONFIG };
+
+export const ITEMS: CatalogItem[] = RAW.map((i) => ({
+  ...i,
+  image: i.image ?? scenarioImage(i.slug),
+  scenario: i.scenario ?? SCENARIOS[i.slug],
+}));
 
 export function getItem(slug: string): CatalogItem | undefined {
   return ITEMS.find((i) => i.slug === slug);

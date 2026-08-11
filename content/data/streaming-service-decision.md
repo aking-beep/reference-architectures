@@ -5,6 +5,8 @@ difficulty: starter
 tags: [kinesis, msk, sqs, firehose, decision]
 updated: 2026-08-11
 origin: "AWS Professor / DEA-C01 / Kinesis vs alternatives decision tree"
+scenario: "Launch-week ingest: replay plus three consumers picks Kinesis, not SQS."
+image: /scenarios/streaming-service-decision.jpg
 ---
 
 # Streaming Service Decision Tree
@@ -12,6 +14,11 @@ origin: "AWS Professor / DEA-C01 / Kinesis vs alternatives decision tree"
 When to pick Kinesis Data Streams, Firehose, MSK, SQS, or DynamoDB Streams — decided by consumer count, replay, latency, retention, and toolchain.
 
 _Harvested from:_ AWS Professor / DEA-C01 / Kinesis vs alternatives decision tree
+
+## Scenario
+Launch-week ingest: replay plus three consumers picks Kinesis, not SQS.
+
+![Launch-week ingest: replay plus three consumers picks Kinesis, not SQS.](/scenarios/streaming-service-decision.jpg)
 
 ## When not to use
 If the source is a single request/response API with no fan-out, you do not need a streaming service at all.

@@ -5,6 +5,8 @@ difficulty: intermediate
 tags: [assessment, maturity, cith, scoring]
 updated: 2026-08-11
 origin: "aking-beep/arc-cith-app — C.I.T.H. maturity framework"
+scenario: "Mean looks healthy. Security is 32. A high average with high variance is fragile."
+image: /scenarios/maturity-assessment-balance-score.jpg
 ---
 
 # Maturity Assessment with a Balance Score
@@ -12,6 +14,11 @@ origin: "aking-beep/arc-cith-app — C.I.T.H. maturity framework"
 A 40-question, behaviorally-anchored maturity model that scores pillars *and* variance — a high average with high spread is fragile, not healthy.
 
 _Harvested from:_ aking-beep/arc-cith-app — C.I.T.H. maturity framework
+
+## Scenario
+Mean looks healthy. Security is 32. A high average with high variance is fragile.
+
+![Mean looks healthy. Security is 32. A high average with high variance is fragile.](/scenarios/maturity-assessment-balance-score.jpg)
 
 ## When not to use
 A five-question marketing quiz. If answers are not behaviorally anchored, a balance score is decoration.

@@ -5,6 +5,8 @@ difficulty: intermediate
 tags: [webhooks, integration, retries, signing]
 updated: 2026-08-11
 origin: "ARC Labs catalog seed"
+scenario: "Customer endpoint down three hours. Signed retries, then replay."
+image: /scenarios/webhook-delivery-system.jpg
 ---
 
 # Reliable Webhook Delivery
@@ -12,6 +14,11 @@ origin: "ARC Labs catalog seed"
 Deliver outbound webhooks with retries, signatures, ordering guarantees, and a consumer-visible delivery log.
 
 _Harvested from:_ ARC Labs catalog seed
+
+## Scenario
+Customer endpoint down three hours. Signed retries, then replay.
+
+![Customer endpoint down three hours. Signed retries, then replay.](/scenarios/webhook-delivery-system.jpg)
 
 ## When not to use
 Internal, in-process notifications in a single app. Don't HTTP yourself.

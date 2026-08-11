@@ -5,6 +5,8 @@ difficulty: advanced
 tags: [evaluation, synthetic-data, ground-truth, operator-ai]
 updated: 2026-08-11
 origin: "Operator-AI / 01_Synthetic_Companies, 06_Ground_Truth, 07_Evaluations + master spec §14–16"
+scenario: "Meridian Health 56-day calendar. Ground truth never enters the model context."
+image: /scenarios/synthetic-eval-loop.jpg
 ---
 
 # Synthetic Data and Evaluation Loop
@@ -12,6 +14,11 @@ origin: "Operator-AI / 01_Synthetic_Companies, 06_Ground_Truth, 07_Evaluations +
 Fictional companies, daily scenarios, and hidden ground truth so you can score extraction quality before any real client data is in the system.
 
 _Harvested from:_ Operator-AI / 01_Synthetic_Companies, 06_Ground_Truth, 07_Evaluations + master spec §14–16
+
+## Scenario
+Meridian Health 56-day calendar. Ground truth never enters the model context.
+
+![Meridian Health 56-day calendar. Ground truth never enters the model context.](/scenarios/synthetic-eval-loop.jpg)
 
 ## When not to use
 A one-shot demo with no intention to measure quality over time. If you cannot name a score, skip the synthetic factory.

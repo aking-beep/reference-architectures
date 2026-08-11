@@ -5,6 +5,8 @@ difficulty: intermediate
 tags: [events, queue, ingestion, idempotency]
 updated: 2026-08-11
 origin: "ARC Labs catalog seed + AWS Professor streaming labs"
+scenario: "Launch-day clickstream. Commit the offset after the upsert; poison messages go to the DLQ."
+image: /scenarios/event-driven-ingestion.jpg
 ---
 
 # Event-Driven Ingestion Pipeline
@@ -12,6 +14,11 @@ origin: "ARC Labs catalog seed + AWS Professor streaming labs"
 Durable, replayable ingestion using a queue or log, idempotent consumers, and a dead-letter path for poison messages.
 
 _Harvested from:_ ARC Labs catalog seed + AWS Professor streaming labs
+
+## Scenario
+Launch-day clickstream. Commit the offset after the upsert; poison messages go to the DLQ.
+
+![Launch-day clickstream. Commit the offset after the upsert; poison messages go to the DLQ.](/scenarios/event-driven-ingestion.jpg)
 
 ## When not to use
 Synchronous, low-volume CRUD where a lost write is acceptable and you will never reprocess history.

@@ -5,6 +5,8 @@ difficulty: intermediate
 tags: [operator-ai, pipeline, bedrock, adr]
 updated: 2026-08-11
 origin: "Operator-AI / 13_Architecture / ADR-001-deterministic-pipeline.md"
+scenario: "Avery Consulting POC daily brief. Explicit stages, no multi-agent orchestration."
+image: /scenarios/deterministic-operator-pipeline.jpg
 ---
 
 # Deterministic Operator Pipeline
@@ -12,6 +14,11 @@ origin: "Operator-AI / 13_Architecture / ADR-001-deterministic-pipeline.md"
 Explicit ingest → extract → validate → persist → retrieve → brief stages. No multi-agent orchestration in the proof of concept.
 
 _Harvested from:_ Operator-AI / 13_Architecture / ADR-001-deterministic-pipeline.md
+
+## Scenario
+Avery Consulting POC daily brief. Explicit stages, no multi-agent orchestration.
+
+![Avery Consulting POC daily brief. Explicit stages, no multi-agent orchestration.](/scenarios/deterministic-operator-pipeline.jpg)
 
 ## When not to use
 A research sandbox where autonomous tool use is the point. This pattern is for operating intelligence that must be debuggable, evaluable, and unable to mutate business systems on its own.

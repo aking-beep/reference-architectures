@@ -1,50 +1,154 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 420" role="img" aria-label="Kinesis Data Streams architecture">
+<svg viewBox="0 0 900 720" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="kds-title kds-desc" style="max-width:100%;height:auto;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#ffffff;">
+  <title id="kds-title">Amazon Kinesis Data Streams — End-to-End Architecture</title>
+  <desc id="kds-desc">Producers send records keyed by partition key into KDS shards; classic consumers poll and share 2 MB/s per shard while Enhanced Fan-Out consumers receive pushed records with dedicated 2 MB/s per consumer; consumers checkpoint to DynamoDB and fan out to S3, Redshift, OpenSearch, and analytics services.</desc>
+
   <style>
-    .box { fill: #0f1419; stroke: #2a3544; stroke-width: 1.5; }
-    .box-hi { fill: #132033; stroke: #5b8cff; stroke-width: 1.5; }
-    .t { font-family: ui-sans-serif, system-ui, sans-serif; fill: #e8eef7; font-size: 13px; }
-    .s { font-family: ui-sans-serif, system-ui, sans-serif; fill: #93a0b7; font-size: 11px; }
-    .arr { stroke: #5b8cff; stroke-width: 1.5; fill: none; marker-end: url(#arrow); }
+    .box { fill: #ffffff; stroke: #d4d4d4; stroke-width: 1.2; }
+    .box-accent { fill: #fef3e7; stroke: #c87119; stroke-width: 1.2; }
+    .shard { fill: #fff7ec; stroke: #c87119; stroke-width: 1.2; }
+    .efo { fill: #f4f4f5; stroke: #8a8a8a; stroke-dasharray: 4 3; stroke-width: 1.2; }
+    .label { font-size: 13px; fill: #1a1a1a; font-weight: 600; }
+    .sublabel { font-size: 11px; fill: #555; }
+    .tier { font-size: 11px; fill: #777; font-weight: 600; letter-spacing: 0.5px; text-transform: uppercase; }
+    .flow { stroke: #777; stroke-width: 1.4; fill: none; marker-end: url(#arrow); }
+    .flow-accent { stroke: #c87119; stroke-width: 1.6; fill: none; marker-end: url(#arrow-accent); }
+    .flow-dash { stroke: #8a8a8a; stroke-width: 1.2; fill: none; stroke-dasharray: 4 3; marker-end: url(#arrow); }
+    .note { font-size: 10.5px; fill: #666; font-style: italic; }
   </style>
+
   <defs>
-    <marker id="arrow" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
-      <path d="M0,0 L6,3 L0,6 Z" fill="#5b8cff"/>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#777"/>
+    </marker>
+    <marker id="arrow-accent" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#c87119"/>
     </marker>
   </defs>
-  <rect width="920" height="420" fill="#0b0e12"/>
-  <text class="t" x="24" y="28">Kinesis Data Streams — producers, shards, classic vs Enhanced Fan-Out</text>
 
-  <rect class="box" x="24" y="52" width="200" height="64" rx="10"/>
-  <text class="t" x="40" y="78">Producers</text>
-  <text class="s" x="40" y="96">KPL / SDK / Agent</text>
+  <text x="30" y="30" class="tier">Producers</text>
+  <g>
+    <rect x="60" y="45" width="180" height="54" rx="8" class="box"/>
+    <text x="150" y="68" text-anchor="middle" class="label">KPL</text>
+    <text x="150" y="86" text-anchor="middle" class="sublabel">Batching + aggregation</text>
 
-  <path class="arr" d="M224 84 H 268"/>
+    <rect x="360" y="45" width="180" height="54" rx="8" class="box"/>
+    <text x="450" y="68" text-anchor="middle" class="label">AWS SDK — PutRecords</text>
+    <text x="450" y="86" text-anchor="middle" class="sublabel">Up to 500 records / 5 MB</text>
 
-  <rect class="box-hi" x="268" y="44" width="384" height="80" rx="10"/>
-  <text class="t" x="284" y="70">Kinesis Data Stream (N shards)</text>
-  <text class="s" x="284" y="90">Partition key → MD5 → shard · 3-AZ sync replication</text>
-  <text class="s" x="284" y="108">1 MB/s in · 2 MB/s out per shard · ordered per key</text>
+    <rect x="660" y="45" width="180" height="54" rx="8" class="box"/>
+    <text x="750" y="68" text-anchor="middle" class="label">Kinesis Agent / MSK Connect</text>
+    <text x="750" y="86" text-anchor="middle" class="sublabel">Log files / CDC sources</text>
+  </g>
 
-  <path class="arr" d="M460 124 V 168"/>
-  <path class="arr" d="M360 168 H 280"/>
-  <path class="arr" d="M560 168 H 640"/>
+  <rect x="60" y="125" width="780" height="38" rx="6" class="box-accent"/>
+  <text x="450" y="143" text-anchor="middle" class="label">Partition key → MD5 hash → 128-bit integer → mapped to shard by hash-key range</text>
+  <text x="450" y="158" text-anchor="middle" class="note">Same partition key always lands on the same shard → per-key ordering guarantee</text>
 
-  <rect class="box" x="24" y="176" width="256" height="72" rx="10"/>
-  <text class="t" x="40" y="202">Classic GetRecords</text>
-  <text class="s" x="40" y="220">HTTP poll · ~200 ms</text>
-  <text class="s" x="40" y="236">2 MB/s shared across consumers</text>
+  <path d="M 150 99 L 150 125" class="flow-accent"/>
+  <path d="M 450 99 L 450 125" class="flow-accent"/>
+  <path d="M 750 99 L 750 125" class="flow-accent"/>
 
-  <rect class="box-hi" x="640" y="176" width="256" height="72" rx="10"/>
-  <text class="t" x="656" y="202">Enhanced Fan-Out</text>
-  <text class="s" x="656" y="220">HTTP/2 push · ~70 ms</text>
-  <text class="s" x="656" y="236">2 MB/s dedicated per consumer</text>
+  <text x="30" y="195" class="tier">Kinesis Data Stream</text>
+  <g>
+    <rect x="60" y="205" width="780" height="110" rx="10" class="box"/>
+    <text x="80" y="226" class="sublabel">Stream: orders-live · On-Demand or Provisioned · retention 24h → 365d</text>
 
-  <path class="arr" d="M152 248 V 292"/>
-  <path class="arr" d="M768 248 V 292"/>
+    <rect x="80" y="240" width="170" height="62" rx="6" class="shard"/>
+    <text x="165" y="262" text-anchor="middle" class="label">Shard 0</text>
+    <text x="165" y="280" text-anchor="middle" class="sublabel">1 MB/s · 1000 rec/s in</text>
+    <text x="165" y="294" text-anchor="middle" class="sublabel">2 MB/s out (shared)</text>
 
-  <rect class="box" x="24" y="292" width="872" height="96" rx="10"/>
-  <text class="t" x="40" y="318">Consumers</text>
-  <text class="s" x="40" y="338">KCL (leases + checkpoints in DynamoDB) · Lambda · Firehose · Managed Flink</text>
-  <text class="s" x="40" y="358">Destinations: S3 · Redshift · OpenSearch · DynamoDB · CloudWatch IteratorAge</text>
-  <text class="s" x="40" y="374">At-least-once by default. Exactly-once is the sink's job.</text>
+    <rect x="260" y="240" width="170" height="62" rx="6" class="shard"/>
+    <text x="345" y="262" text-anchor="middle" class="label">Shard 1</text>
+    <text x="345" y="280" text-anchor="middle" class="sublabel">Ordered log of records</text>
+    <text x="345" y="294" text-anchor="middle" class="sublabel">Each has a sequence #</text>
+
+    <rect x="440" y="240" width="170" height="62" rx="6" class="shard"/>
+    <text x="525" y="262" text-anchor="middle" class="label">Shard 2</text>
+    <text x="525" y="280" text-anchor="middle" class="sublabel">Split / merge to resize</text>
+    <text x="525" y="294" text-anchor="middle" class="sublabel">Resharding is online</text>
+
+    <rect x="620" y="240" width="200" height="62" rx="6" class="shard"/>
+    <text x="720" y="262" text-anchor="middle" class="label">Shard 3</text>
+    <text x="720" y="280" text-anchor="middle" class="sublabel">Hot-shard = skewed keys</text>
+    <text x="720" y="294" text-anchor="middle" class="sublabel">Fix with better key choice</text>
+  </g>
+
+  <path d="M 450 163 L 450 205" class="flow-accent"/>
+
+  <text x="30" y="350" class="tier">Consumer Paths</text>
+
+  <rect x="60" y="365" width="370" height="70" rx="8" class="box"/>
+  <text x="245" y="388" text-anchor="middle" class="label">Classic — GetRecords (poll)</text>
+  <text x="245" y="406" text-anchor="middle" class="sublabel">Shared 2 MB/s per shard across all consumers</text>
+  <text x="245" y="422" text-anchor="middle" class="sublabel">~200 ms latency · cheap · contention risk</text>
+
+  <rect x="470" y="365" width="370" height="70" rx="8" class="efo"/>
+  <text x="655" y="388" text-anchor="middle" class="label">Enhanced Fan-Out — SubscribeToShard (push)</text>
+  <text x="655" y="406" text-anchor="middle" class="sublabel">Dedicated 2 MB/s PER consumer · HTTP/2 push</text>
+  <text x="655" y="422" text-anchor="middle" class="sublabel">~70 ms latency · costs $ per consumer-shard-hour</text>
+
+  <path d="M 250 302 L 245 365" class="flow"/>
+  <path d="M 650 302 L 655 365" class="flow-dash"/>
+
+  <text x="30" y="465" class="tier">Consumers</text>
+  <g>
+    <rect x="60" y="480" width="180" height="64" rx="8" class="box"/>
+    <text x="150" y="503" text-anchor="middle" class="label">KCL App (EC2/ECS)</text>
+    <text x="150" y="521" text-anchor="middle" class="sublabel">One worker per shard</text>
+    <text x="150" y="535" text-anchor="middle" class="sublabel">Checkpoints → DynamoDB</text>
+
+    <rect x="260" y="480" width="180" height="64" rx="8" class="box"/>
+    <text x="350" y="503" text-anchor="middle" class="label">Lambda (event source)</text>
+    <text x="350" y="521" text-anchor="middle" class="sublabel">Batch window + size</text>
+    <text x="350" y="535" text-anchor="middle" class="sublabel">Parallelization factor 1-10</text>
+
+    <rect x="460" y="480" width="180" height="64" rx="8" class="box"/>
+    <text x="550" y="503" text-anchor="middle" class="label">Firehose</text>
+    <text x="550" y="521" text-anchor="middle" class="sublabel">Managed buffer + deliver</text>
+    <text x="550" y="535" text-anchor="middle" class="sublabel">No code, near-real-time</text>
+
+    <rect x="660" y="480" width="180" height="64" rx="8" class="box"/>
+    <text x="750" y="503" text-anchor="middle" class="label">Managed Service for Flink</text>
+    <text x="750" y="521" text-anchor="middle" class="sublabel">Stateful stream SQL</text>
+    <text x="750" y="535" text-anchor="middle" class="sublabel">Windows, joins, CEP</text>
+  </g>
+
+  <path d="M 150 435 L 150 480" class="flow"/>
+  <path d="M 350 435 L 350 480" class="flow"/>
+  <path d="M 550 435 L 550 480" class="flow-dash"/>
+  <path d="M 750 435 L 750 480" class="flow-dash"/>
+
+  <text x="30" y="575" class="tier">Destinations</text>
+  <g>
+    <rect x="60" y="590" width="180" height="54" rx="8" class="box"/>
+    <text x="150" y="613" text-anchor="middle" class="label">S3 (data lake)</text>
+    <text x="150" y="631" text-anchor="middle" class="sublabel">Parquet via Firehose</text>
+
+    <rect x="260" y="590" width="180" height="54" rx="8" class="box"/>
+    <text x="350" y="613" text-anchor="middle" class="label">Redshift / OpenSearch</text>
+    <text x="350" y="631" text-anchor="middle" class="sublabel">Direct or via Firehose</text>
+
+    <rect x="460" y="590" width="180" height="54" rx="8" class="box"/>
+    <text x="550" y="613" text-anchor="middle" class="label">DynamoDB (state)</text>
+    <text x="550" y="631" text-anchor="middle" class="sublabel">KCL checkpoint table</text>
+
+    <rect x="660" y="590" width="180" height="54" rx="8" class="box"/>
+    <text x="750" y="613" text-anchor="middle" class="label">CloudWatch / X-Ray</text>
+    <text x="750" y="631" text-anchor="middle" class="sublabel">IteratorAge = lag</text>
+  </g>
+
+  <path d="M 150 544 L 150 590" class="flow"/>
+  <path d="M 350 544 L 350 590" class="flow"/>
+  <path d="M 550 544 L 550 590" class="flow-dash"/>
+  <path d="M 750 544 L 750 590" class="flow"/>
+
+  <g transform="translate(60, 670)">
+    <line x1="0" y1="6" x2="28" y2="6" class="flow"/>
+    <text x="34" y="10" class="sublabel">solid = data path</text>
+    <line x1="180" y1="6" x2="208" y2="6" class="flow-dash"/>
+    <text x="214" y="10" class="sublabel">dashed = EFO / derived path</text>
+    <rect x="410" y="0" width="14" height="12" class="shard"/>
+    <text x="430" y="10" class="sublabel">shard (unit of throughput & ordering)</text>
+  </g>
 </svg>

@@ -5,6 +5,8 @@ difficulty: starter
 tags: [jobs, workers, queue, retries]
 updated: 2026-08-11
 origin: "ARC Labs catalog seed + Experience Intelligence (Trigger.dev / Playwright jobs)"
+scenario: "Franchise CRO crawl of 40 URLs. The web tier returns; workers run the journeys."
+image: /scenarios/async-job-processing.jpg
 ---
 
 # Async Job Processing
@@ -12,6 +14,11 @@ origin: "ARC Labs catalog seed + Experience Intelligence (Trigger.dev / Playwrig
 Offload slow work to a worker pool with retries, visibility timeouts, and a dead-letter queue.
 
 _Harvested from:_ ARC Labs catalog seed + Experience Intelligence (Trigger.dev / Playwright jobs)
+
+## Scenario
+Franchise CRO crawl of 40 URLs. The web tier returns; workers run the journeys.
+
+![Franchise CRO crawl of 40 URLs. The web tier returns; workers run the journeys.](/scenarios/async-job-processing.jpg)
 
 ## When not to use
 Work that must finish inside the user's request and is already well under your timeout (simple reads, tiny transforms).

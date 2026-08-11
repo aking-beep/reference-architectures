@@ -5,6 +5,8 @@ difficulty: intermediate
 tags: [finops, agents, kill-switch, tokenloop]
 updated: 2026-08-11
 origin: "ARC Labs / TokenLoop (tokenloop.vercel.app) — live free product"
+scenario: "jordan@ spiked 7.8×. Kill switch via admin APIs — minutes-scale, no proxy."
+image: /scenarios/agent-spend-control.jpg
 ---
 
 # Agent Spend Control Without a Gateway
@@ -12,6 +14,11 @@ origin: "ARC Labs / TokenLoop (tokenloop.vercel.app) — live free product"
 Detect-and-cut AI coding-agent spend from read-only admin APIs: per-developer burn, a minutes-scale kill switch, and client chargeback — no traffic proxy.
 
 _Harvested from:_ ARC Labs / TokenLoop (tokenloop.vercel.app) — live free product
+
+## Scenario
+jordan@ spiked 7.8×. Kill switch via admin APIs — minutes-scale, no proxy.
+
+![jordan@ spiked 7.8×. Kill switch via admin APIs — minutes-scale, no proxy.](/scenarios/agent-spend-control.jpg)
 
 ## When not to use
 When you need true per-request blocking. A minutes-scale kill switch cannot stop a token already in flight. Don't pretend otherwise.

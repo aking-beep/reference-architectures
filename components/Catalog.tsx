@@ -10,6 +10,8 @@ export type CatalogCard = {
   summary: string;
   tags: string[];
   difficulty?: string;
+  image?: string;
+  scenario?: string;
 };
 
 const DIFF_COLOR: Record<string, string> = {
@@ -80,7 +82,14 @@ export function Catalog({
 
       <div className="grid sm:grid-cols-2 gap-4">
         {filtered.map((i) => (
-          <Link key={i.slug} href={`/${i.slug}`} className="card p-4 space-y-2 hover:border-brand/50 transition block">
+          <Link key={i.slug} href={`/${i.slug}`} className="card overflow-hidden hover:border-brand/50 transition block">
+            {i.image && (
+              <div className="aspect-[16/9] bg-bg border-b border-line overflow-hidden">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img src={i.image} alt={i.scenario ?? i.title} className="h-full w-full object-cover" />
+              </div>
+            )}
+            <div className="p-4 space-y-2">
             <div className="flex items-center justify-between gap-2">
               <span className="pill text-brand border-brand/40 bg-brand/10">{i.category}</span>
               {i.difficulty && (
@@ -95,6 +104,7 @@ export function Catalog({
               {i.tags.slice(0, 4).map((t) => (
                 <span key={t} className="text-[11px] text-sub">#{t}</span>
               ))}
+            </div>
             </div>
           </Link>
         ))}
