@@ -5,7 +5,7 @@
 A free, open library of battle-tested system blueprints harvested from ARC's real work: AWS streaming labs, Operator AI, Labs products, CITH, Experience Intelligence, and FoodMesh. Each entry documents the problem, the component shape, key decisions and trade-offs, failure modes, **when not to use it**, and a scaling path.
 
 Repo: https://github.com/aking-beep/reference-architectures  
-Live: https://referencearchitectures.arctransformationgrouplab.dev  
+Live: https://reference-architectures.vercel.app  
 Website: https://arc-website-pi-five.vercel.app/labs/reference-architectures  
 Labs home (Google Drive): `ARC Transformation/ARC Labs (Free)/reference-architectures`
 
